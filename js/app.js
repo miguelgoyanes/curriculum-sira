@@ -1,9 +1,19 @@
 const menu = document.querySelector('.hamburguesa');  
 const navegacion = document.querySelector('.navegacion');
 
+//para la funcion tamaño pantalla
+const sourceDirectora = document.querySelector('#source-directora');
+const sourcePistola = document.querySelector('#source-pistola');
+const videoDirectora = document.querySelector('#video-directora');
+const videoPistola = document.querySelector('#video-pistola');
+
+
+
 document.addEventListener('DOMContentLoaded',()=>{
     eventos();
-    tamañoPantalla();   //esta comprobacion solo se realiza al empezar porque no tendria sentido lo contrario 
+    tamañoPantalla();   //esta comprobacion solo se realiza al empezar porque no tendria sentido lo contrario
+    sabautoplaySafari();
+    
 });
 
 const eventos = () =>{
@@ -71,11 +81,6 @@ const cerrarMenu = (boton, overlay, body) =>{
 const tamañoPantalla = () =>{
     // Obtiene el ancho de la ventana del navegador
     const width = window.innerWidth;
-    const sourceDirectora = document.querySelector('#source-directora');
-    const sourcePistola = document.querySelector('#source-pistola');
-    const videoDirectora = document.querySelector('#video-directora');
-    const videoPistola = document.querySelector('#video-pistola');
-
     // Comprueba si el ancho es menor que 600 píxeles (para dispositivos móviles)
     if (width < 768) {
         // Código para dispositivos móviles aquí
@@ -87,8 +92,11 @@ const tamañoPantalla = () =>{
     
 }
 
-const saberMas = () =>{
-    const btnPistola=document.getElementById('btn-pistola');
-
-    btnPistola.addEventListener('click',)
+const sabautoplaySafari = () =>{
+    videoDirectora.addEventListener('loadedmetadata', function() {
+        videoDirectora.play();
+  });
+  videoPistola.addEventListener('loadedmetadata', function() {
+    videoPistola.play();
+});
 }
