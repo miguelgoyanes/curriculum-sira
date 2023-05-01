@@ -12,7 +12,6 @@ const videoPistola = document.querySelector('#video-pistola');
 document.addEventListener('DOMContentLoaded',()=>{
     eventos();
     tamañoPantalla();   //esta comprobacion solo se realiza al empezar porque no tendria sentido lo contrario
-    sabautoplaySafari();
     
 });
 
@@ -92,11 +91,3 @@ const tamañoPantalla = () =>{
     
 }
 
-const sabautoplaySafari = () =>{
-    videoDirectora.addEventListener('loadedmetadata', function() {
-        videoDirectora.play();
-  });
-  videoPistola.addEventListener('loadedmetadata', function() {
-    videoPistola.play();
-});
-}
