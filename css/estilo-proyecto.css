@@ -1,0 +1,177 @@
+/*User propertis*/
+:root{
+    --granate:#4B0017;
+    --granate2:#6c202d;
+    --granate3:#974659;
+    --granate4:#dec5c8;
+    --verde:#2f4731;
+    --verde2:#4e7246;
+    --verde3:#91b3a2;
+    --blanco:#f2f2f2;
+    --titulos:'Arima Madurai',cursive;
+    --parrafos:'Mulish',san-serif;
+}
+html{
+    /*box sicenc (el padding etc no modifique los width o height)*/
+    box-sizing: border-box;
+    /*rems (calcula lo que mide por defecto los textos)*/
+    /*navegador pone 16px por defecto-> por lo tanto 1rem=16px 2rem=32px (asi adapta el tamaño de letra dependiendo el dispositivo)*/
+    font-size: 62.5%;/*asi el font siza por defecto son 10px osea 1rem=10px*/
+}
+/*todos los elementos y sus seudos elementos representar el valos calculado de cualquier padre*/
+*,*::after, *::before{  
+    box-sizing: inherit;
+}
+body{
+    font-size: 1.6rem;  /*asi mide 16px*/
+    overflow-x: hidden; /*en la animacion de menu sale una barra que molesta asi se elimina*/
+}
+h2, h3{
+    font-family: var(--titulos);
+}
+h4, p, li{
+    font-family: var(--parrafos);
+}
+a{
+    color: var(--blanco);
+    text-decoration: none;
+    font-family: var(--parrafos);
+    font-size: 2.2rem;
+}
+a:hover{
+    color: var(--granate);
+}
+/*globales*/
+.contenedor{
+    max-width: 150rem;
+    margin: 0 auto;
+    width: 95%; /*para dejar un vorde a los lados sobre todo en movil*/
+}
+img{
+    max-width: 100%;
+}
+.contenedor-btn{
+    display: flex;
+    justify-content: right;
+}
+.btn{
+    text-decoration: none;
+    color: var(--blanco);
+    background-color: var(--verde3);
+    font-size: 2rem;
+    padding: 1rem 5rem;
+    border: 0px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+.btn:hover{
+    background-color: var(--granate3);
+}
+
+/*Cabecera*/
+.contenedor-navegacion{
+    background-color: var(--verde3);
+    position: relative;
+    z-index: 5;
+}
+.contenido-navegacion{
+    height: 12rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.contenido-navegacion img{
+    width: 10rem;
+    margin: 2rem;
+}
+.titulo-navegador{
+    display: flex;
+    align-items: center;
+}
+.titulo-navegador h2{
+    display: none;
+    color: var(--blanco);
+    font-family: var(--titulos);
+    font-size: 2.4rem;
+}
+@media(min-width: 425px){
+    .titulo-navegador h2{
+        display: inline;
+    }
+}
+/*contenido*/
+.contenedor-img{
+    display: flex;
+    justify-content: center;
+}
+.seccion{
+    padding: 3rem;
+}
+@media(min-width: 768px){
+    .seccion{
+        padding: 6rem;
+    }
+}
+@media(min-width: 1024px){
+    .seccion{
+        margin: 0 15rem;
+    }
+}
+.seccion img{
+    width: 100%;
+    border-radius: 15px;
+}
+.seccion h2{
+    font-size: 3rem;
+    padding: 2rem;
+    text-align: center;
+}
+.seccion h3{
+    font-size: 2rem;
+    text-align: center;
+}
+.seccion p{
+    text-align: justify;
+}
+@media(min-width: 768px){
+    .seccion h2{
+        font-size: 4rem;
+        padding: 2rem;
+        text-align: center;
+    }
+    .seccion h3{
+        font-size: 2.4rem;
+        text-align: right;
+    }
+}
+/*video*/
+.contenedor-video{
+    display: flex;
+    justify-content: center;
+    background-color: var(--granate4);
+    padding: 5rem 0;
+}
+.contenedor-video video{
+    width: 70%;
+    border-radius: 15px;
+}
+@media(min-width: 1024px){
+    .contenedor-video video{
+        width: 50%;
+    }
+
+}
+
+
+/*Footer*/
+.footer{
+    background-color: var(--verde3);
+    color: var(--blanco);
+    margin: 0px;
+    padding: 1rem;
+    text-align: center;
+}
+
+
+

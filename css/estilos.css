@@ -1,0 +1,481 @@
+/*User propertis*/
+:root{
+    --granate:#4B0017;
+    --granate2:#6c202d;
+    --granate3:#974659;
+    --granate4:#dec5c8;
+    --verde:#2f4731;
+    --verde2:#4e7246;
+    --verde3:#91b3a2;
+    --blanco:#f2f2f2;
+    --titulos:'Arima Madurai',cursive;
+    --parrafos:'Mulish',san-serif;
+}
+html{
+    /*box sicenc (el padding etc no modifique los width o height)*/
+    box-sizing: border-box;
+    /*rems (calcula lo que mide por defecto los textos)*/
+    /*navegador pone 16px por defecto-> por lo tanto 1rem=16px 2rem=32px (asi adapta el tamaño de letra dependiendo el dispositivo)*/
+    font-size: 62.5%;/*asi el font siza por defecto son 10px osea 1rem=10px*/
+}
+/*todos los elementos y sus seudos elementos representar el valos calculado de cualquier padre*/
+*,*::after, *::before{  
+    box-sizing: inherit;
+}
+body{
+    font-size: 1.6rem;  /*asi mide 16px*/
+    overflow-x: hidden; /*en la animacion de menu sale una barra que molesta asi se elimina*/
+}
+h2, h3{
+    font-family: var(--titulos);
+    font-size: 2.4rem;
+}
+h4, p, li{
+    font-family: var(--parrafos);
+    font-size: 1.8rem;
+}
+a{
+    color: var(--blanco);
+    text-decoration: none;
+    font-family: var(--parrafos);
+    font-size: 1.8rem;
+}
+a:hover{
+    color: var(--granate);
+}
+/*globales*/
+.contenedor{
+    max-width: 150rem;
+    margin: 0 auto;
+    width: 95%; /*para dejar un vorde a los lados sobre todo en movil*/
+}
+img{
+    max-width: 100%;
+}
+@media(max-width: 1024px){  /*para tablet y movil*/
+    .ocultar{
+        display: none;  /*como borrar el elemento en html*/
+    }
+}
+.contenedor-btn{
+    margin: 5rem 0;
+    display: flex;
+    justify-content: right;
+}
+.btn{
+    text-decoration: none;
+    color: var(--blanco);
+    background-color: var(--verde3);
+    font-size: 2rem;
+    padding: 1rem 5rem;
+    border: 0px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+.btn:hover{
+    background-color: var(--granate3);
+}
+
+@keyframes desplazamiento{      /*animacion desplazamiento de derecha a izquieda*/
+    0%{
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(0%);
+    }
+}
+/*Cabecera*/
+.contenedor-navegacion{
+    background-color: var(--verde3);
+    position: relative;
+    z-index: 5;
+}
+.contenido-navegacion{
+    height: 12rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.contenido-navegacion img{
+    width: 10rem;
+    margin: 2rem;
+}
+.titulo-navegador{
+    display: flex;
+    align-items: center;
+}
+.titulo-navegador h2{
+    color: var(--blanco);
+    font-family: var(--titulos);
+    font-size: 2.4rem;
+}
+@media(min-width: 425px){
+    .titulo-navegador h2{
+        font-size: 3.5rem;
+    }
+}
+/*NAV Aqui empieza la parte del nav*/
+@media(min-width: 1024px){
+    .navegacion{
+        display: block;
+    }
+    .navegacion a{
+        font-size: 2.2rem;
+        padding: 1.5rem;
+    }
+}
+@media(max-width: 1024px){  /*para tablet y movil*/
+    .navegacion{
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        height: 100vh;
+        width: 40rem;
+        padding: 3rem 4rem;
+        background-color: var(--verde3);
+        animation: desplazamiento .5s ease-in-out;
+    }
+    .navegacion a{
+        font-size: 2.2rem;
+        padding: 1.5rem;
+        padding-left: 4rem;
+        text-align: center;
+        display: block;
+    }
+    .navegacion a:first-of-type{    /*El primero de su tipo*/
+        margin-top: 10rem;
+    }
+    .hamburguesa:hover{
+        cursor: pointer;
+    }
+    .hamburguesa span{
+        background-color: var(--blanco);
+        display: block;
+        width: 5rem;
+        height: .5rem;
+        margin-bottom: .5rem;
+    }
+}
+.btn-cerrar{
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--blanco);
+    position: absolute;
+    top: 0;
+    right: 50px;
+    user-select: none;  /*No seleccionable*/
+}
+.btn-cerrar:hover{      
+    cursor: pointer;    /*asi ponemos el cursor en modo mano*/
+}
+.pantalla-completa{     /*hacemos opaco la pantalla */
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 4;     /*para estar debajo que el menu*/
+}
+
+
+/*Presentacion*/
+/*Presentacion Imagen*/
+@media(min-width: 768px){
+    .contenido-presentacion{
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 1fr;
+        justify-content: space-between;
+    }
+}
+@media(min-width: 1024px){
+    .contenido-presentacion{
+        display: grid;
+        grid-template-columns: 50% 25% 25%;
+        grid-template-rows: 1fr;
+        justify-content: space-between;
+    }
+}
+@media(min-width: 768px){
+    .contenedor-imgPresentacion{
+        grid-row: 1/2;
+        height: 100%;
+        overflow: hidden; /* ocultar cualquier parte de la imagen que esté fuera del contenedor */
+    }
+}
+@media(min-width: 1024px){
+    .contenedor-imgPresentacion{
+        grid-row: 1/3;
+        height: 100%;
+        overflow: hidden; /* ocultar cualquier parte de la imagen que esté fuera del contenedor */
+    }
+}
+@media(min-width: 768px){
+    .contenedor-imgPresentacion img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* recortar la imagen para ajustarse al tamaño del contenedor */
+    }
+}
+/*Presentacion Nombre y descripcion*/
+.contenedor-presentacionNombre{
+    grid-column: 2/3;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+@media(min-width: 1024px){
+    .contenedor-presentacionNombre{
+        grid-column: 2/4;
+        padding: 6rem;
+    }
+}
+.contenedor-presentacionNombre h2{
+    font-size: 4rem;
+    color: var(--granate);
+    font-weight: bold;
+    text-align: center;
+}
+.contenedor-presentacionNombre h3{
+    font-size: 2rem;
+    color: var(--granate);
+    font-weight: bold;
+    text-align: right;
+}
+.contenedor-presentacionNombre p{
+    text-align: center;
+}
+/*Presentacion Habilidades*/
+.contenedor-habilidadies{
+    background-color: var(--verde3);
+    color: var(--blanco);
+    padding: 3rem;
+}
+.contenedor-habilidadies h3{
+    text-align: center;
+}
+.contenedor-habilidadies p{
+    margin: 1rem 0;
+    text-align: center;
+}
+@media(min-width: 768px){
+    .contenedor-habilidadies p{
+        text-align: left;
+    }
+}
+/*Presentacion Informacion personal*/
+.contenedor-datos{
+    background-color: var(--granate3);
+    color: var(--blanco);
+    padding: 3rem;
+}
+.contenedor-datos h3{
+    text-align: center;
+}
+.contenedor-datos p{
+    text-align: center;
+}
+@media(min-width: 768px){
+    .contenedor-datos p{
+        text-align: left;
+    }
+}
+.contenedor-datos a:hover{
+    color: var(--verde3);
+}
+/*Formaciones*/
+.formacion{
+    padding: 3rem;
+}
+@media(min-width: 1024px){
+    .formacion{
+        margin: 0 6rem;
+    }
+}
+.formacion h2{
+    font-size: 4rem;
+    text-align: center;
+}
+.formacion h3{
+    font-size: 3rem;
+    margin: 4rem 0 2rem 0;
+}
+.formacion p{
+    text-align: justify;
+}
+/*Video separador*/
+.video-separador{
+    background-color: #000;
+    position: relative;
+}
+.texto-video{
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;     /*cambiamos la direccion, ahora align-items alinea de izq a der*/
+    align-items: center;
+    justify-content: center;
+}
+.texto-video h2{
+    color: var(--blanco);
+    font-size: 2rem;
+    margin: 0.5rem;
+}
+.texto-video h3{
+    color: var(--blanco);
+    font-size: 1.6rem;
+    margin: 0.5rem;
+}
+@media(min-width: 768px){
+    .texto-video h2{
+        font-size: 4rem;
+        margin: 0.5rem;
+    }
+    .texto-video h3{
+        font-size: 3rem;
+        margin: 0.5rem;
+    }
+}
+video{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+/*formacion adicional y otros*/
+@media(min-width: 1024px){
+    .contenedor-form-adic{
+        display: grid;
+        grid-template-columns: 60% 40%;
+    }
+}
+.formacion-adicional{
+    padding: 3rem;
+}
+@media(min-width: 1024px){
+    .formacion-adicional{
+        margin: 0 6rem;
+    }
+}
+.formacion-adicional h2{
+    font-size: 4rem;
+    text-align: center;
+}
+.formacion-adicional h3{
+    font-size: 3rem;
+    margin: 4rem 0 2rem 0;
+}
+.formacion-adicional p{
+    text-align: justify;
+}
+/*Otros*/
+@media(min-width: 768px){
+    .otros{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+.idiomas{
+    grid-column: 1/2;
+    grid-row: 1/2;
+    background-color: var(--granate3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.programas{
+    grid-column: 2/3;
+    grid-row: 1/3;
+    background-color: #7A5D53;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.instrumentos{
+    grid-column: 1/2;
+    grid-row: 2/3;
+    background-color: var(--verde3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.idiomas, .programas, .instrumentos{
+    color: var(--blanco);
+    padding: 3rem;
+}
+.otros h3{
+    text-align: center;
+}
+.otros p{
+    text-align: center;
+}
+/*
+@media(min-width: 768px){
+    .otros p{
+        text-align: left;
+    }
+}
+*/
+/*Video separador 2*/
+.video-separador{
+    background-color: #000;
+    position: relative;
+}
+.video-separador video{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+/*proyectos*/
+.contenedor-proyectos{
+    padding-top: 2rem;
+    padding-bottom: 5rem;
+}
+@media(min-width: 1024px){
+    .contenedor-proyectos{
+        margin: 0 6rem;
+    }
+}
+.contenedor-proyectos h2{
+    font-size: 4rem;
+    text-align: center;
+}
+.contenedor-proyectos h3{
+    font-size: 2rem;
+    margin: 4rem 0 2rem 0;
+}
+.contenedor-proyectos p{
+    text-align: justify;
+}
+@media(min-width: 768px){
+    .proyectos{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+.proyecto-pistola{
+    padding: 3rem;
+}
+.proyecto-pistola img{
+    border-radius: 10px;
+}
+.proyecto-w{
+    padding: 3rem;
+}
+.proyecto-w img{
+    border-radius: 10px;
+}
+/*Footer*/
+.footer{
+    background-color: var(--verde3);
+    color: var(--blanco);
+    margin: 0px;
+    padding: 1rem;
+    text-align: center;
+}
+
